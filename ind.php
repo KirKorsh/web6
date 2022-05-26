@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   $values['run'] = 0;
   
   $user = 'u47577';
-  $pass = '9303559 ';
+  $pass = '9303559';
   $db = new PDO('mysql:host=localhost;dbname=u47577', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
   try{
       $id=$_GET['edit_id'];
@@ -204,7 +204,7 @@ else {
     }
     
     $user = 'u47577';
-    $pass = '9303559 ';
+    $pass = '9303559';
     $db = new PDO('mysql:host=localhost;dbname=u47577', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
     if(!$errors){
       $upd=$db->prepare("UPDATE application SET name=:name, email=:email, year=:byear, pol=:pol, limbs=:limbs, bio=:bio WHERE id=:id");
@@ -239,7 +239,7 @@ else {
   else {
     $id=$_POST['dd'];
     $user = 'u47577';
-    $pass = '9303559 ';
+    $pass = '9303559';
     $db = new PDO('mysql:host=localhost;dbname=u47577', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
     try {
       $del=$db->prepare("DELETE FROM super WHERE per_id=?");
