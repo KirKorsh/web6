@@ -39,7 +39,7 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
   $pwr_def=array('fly','sleep','run');
   $pwrs_count=array();
   try{
-    $get=$db->prepare("select * from application");
+    $get=$db->prepare("select * from form");
     $get->execute();
     $inf=$get->fetchALL();
     $get2=$db->prepare("select per_id,name from super");
