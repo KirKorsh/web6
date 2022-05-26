@@ -65,7 +65,7 @@ if (!empty($messages)) {
 ?>
 <body>
    <div id="form">
-    <h1>Форма контракта</h1>
+    <h1>Форма</h1>
 
     <form action="ind.php" method="POST">
 

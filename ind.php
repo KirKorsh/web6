@@ -179,7 +179,6 @@ else {
 
     if (!isset($powers)) {
       setcookie('super_error', '1', time() + 24 * 60 * 60);
-	  setcookie('super_value', '', 100000);
       $errors = TRUE;
     }
     
