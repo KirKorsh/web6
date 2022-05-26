@@ -7,7 +7,7 @@
 
 if($_SERVER['REQUEST_METHOD']=='GET'){
   $user = 'u47577';
-  $pass = '9303559 ';
+  $pass = '9303559';
   $db = new PDO('mysql:host=localhost;dbname=u47577', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
   $pass_hash=array();
   try{
