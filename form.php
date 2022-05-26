@@ -7,7 +7,6 @@ body{
     font-family: "Montserrat", sans-serif;
 }
 div.table ,#form, div.link-list{
-    background-color: rgba(123, 0, 212, 0.24);
 }
 label {
     margin:10px 0;
