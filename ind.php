@@ -19,10 +19,11 @@ if (empty($_SERVER['PHP_AUTH_USER']) ||
     header('WWW-Authenticate: Basic realm="My site"');
     print('<h1>401 Unauthorized (Требуется авторизация)</h1>');
     exit();
-}
+}/*
 if(empty($_GET['edit_id'])){
   header('Location: admin.php');
 }
+*/
 header('Content-Type: text/html; charset=UTF-8');
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   $messages = array();
