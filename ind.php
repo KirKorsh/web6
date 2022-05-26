@@ -131,6 +131,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 }
 else {
   if(!empty($_POST['edit'])){
+	  
+	  ////////////////
+	  setcookie('save', '1');
+	  /////////////////
+	  
     $id=$_POST['dd'];
     $name = $_POST['name'];
     $email = $_POST['email'];
