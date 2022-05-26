@@ -137,7 +137,7 @@ else {
     $year = $_POST['year'];
     $pol=$_POST['radio-1'];
     $limbs=$_POST['radio-2'];
-    $runs=$_POST['super'];
+    $powers=$_POST['super'];
     $bio=$_POST['bio'];
 
     //Регулярные выражения
@@ -204,7 +204,7 @@ else {
     }
     
     $user = 'u47577';
-    $pass = '9303559';
+    $pass = '9303559 ';
     $db = new PDO('mysql:host=localhost;dbname=u47577', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
     if(!$errors){
       $upd=$db->prepare("UPDATE application SET name=:name, email=:email, year=:byear, pol=:pol, limbs=:limbs, bio=:bio WHERE id=:id");
@@ -223,10 +223,10 @@ else {
       $upd->execute();
       $del=$db->prepare("DELETE FROM super WHERE per_id=?");
       $del->execute(array($id));
-      $upd1=$db->prepare("INSERT INTO super SET name=:run,per_id=:id");
+      $upd1=$db->prepare("INSERT INTO super SET name=:power,per_id=:id");
       $upd1->bindParam(':id',$id);
-      foreach($runs as $pwr){
-        $upd1->bindParam(':run',$pwr);
+      foreach($powers as $pwr){
+        $upd1->bindParam(':powers',$pwr);
         $upd1->execute();
       }
     }

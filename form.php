@@ -131,9 +131,9 @@ if (!empty($messages)) {
         <br />
         <select name="super[]" multiple="multiple"
 	  <?php if ($errors['super']) {print 'class="error"';} ?> >
-          <option value="fly" <?php if($values['fly']==1){print 'selected';} ?> > Бессмертие</option>
-          <option value="sleep" <?php if ($values['sleep']==1){print 'selected';} ?> > No clip</option>
-          <option value="run" <?php if ($values['run']==1){print 'selected';} ?> > Суперсила</option>
+          <option value="fly" <?php if($values['fly']==1){print 'selected';} ?> > Полёт</option>
+          <option value="sleep" <?php if ($values['sleep']==1){print 'selected';} ?> > спать</option>
+          <option value="run" <?php if ($values['run']==1){print 'selected';} ?> > Бегать</option>
         </select>
       </label><br />
 	  

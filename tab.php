@@ -20,7 +20,7 @@
         <th>Year</th>
         <th>Pol</th>
         <th>Limbs</th>
-        <th>Superruns</th>
+        <th>Superpower</th>
         <th>Bio</th>
       </tr>
       <?php
@@ -46,8 +46,8 @@
                         if($pwr['name']=='sleep'){
                             $user_pwrs['sleep']=TRUE;
                         }
-                        if($pwr['name']=='run'){
-                            $user_pwrs['run']=TRUE;
+                        if($pwr['name']=='power'){
+                            $user_pwrs['power']=TRUE;
                         }                      
                     }
                 }
