@@ -130,10 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   include('form.php');
 }
 else {
-	////////////////
-	  setcookie('save', '1');
-	  /////////////////
-  if(!empty($_POST['edit'])){
+  if(!empty($_POST['save'])){
 	  
 	  
 	  

@@ -142,7 +142,7 @@ if (!empty($messages)) {
         <textarea name="bio"> <?php print $values['bio']; ?> </textarea>
       </label><br />
       <input name='dd' hidden value=<?php print($_GET['edit_id']);?>>
-      <input type="submit" name='edit' value="Save"/>
+      <input type="submit" name='save' value="Save"/>
       <input type="submit" name='del' value="Delete"/>
     </form>
    <p>
