@@ -21,7 +21,7 @@ if (empty($_SERVER['PHP_AUTH_USER']) ||
     exit();
 }
 if(empty($_GET['edit_id'])){
-  header('Location: admin1.php');
+  header('Location: admin.php');
 }
 
 header('Content-Type: text/html; charset=UTF-8');
