@@ -106,6 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
       $values['radio-1']=$inf[0]['pol'];
       $values['radio-2']=$inf[0]['limbs'];
       $values['bio']=$inf[0]['bio'];
+	  $values['super']=$inf[0]['super'];
     
       $get2=$db->prepare("SELECT name FROM super WHERE per_id=?");
       $get2->bindParam(1,$id);
@@ -179,6 +180,7 @@ else {
 
     if (!isset($runs)) {
       setcookie('super_error', '1', time() + 24 * 60 * 60);
+	  setcookie('super_value', '', 100000);
       $errors = TRUE;
     }
     

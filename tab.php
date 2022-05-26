@@ -46,8 +46,8 @@
                         if($pwr['name']=='sleep'){
                             $user_pwrs['sleep']=TRUE;
                         }
-                        if($pwr['name']=='power'){
-                            $user_pwrs['power']=TRUE;
+                        if($pwr['name']=='run'){
+                            $user_pwrs['run']=TRUE;
                         }                      
                     }
                 }
