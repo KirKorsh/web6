@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   $db = new PDO('mysql:host=localhost;dbname=u47577', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
   try{
       $id=$_GET['edit_id'];
-      $get=$db->prepare("SELECT * FROM application WHERE id=?");
+      $get=$db->prepare("SELECT * FROM form WHERE id=?");
       $get->bindParam(1,$id);
       $get->execute();
       $inf=$get->fetchALL();
@@ -207,7 +207,7 @@ else {
     $pass = '9303559 ';
     $db = new PDO('mysql:host=localhost;dbname=u47577', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
     if(!$errors){
-      $upd=$db->prepare("UPDATE application SET name=:name, email=:email, year=:byear, pol=:pol, limbs=:limbs, bio=:bio WHERE id=:id");
+      $upd=$db->prepare("UPDATE form SET name=:name, email=:email, year=:byear, pol=:pol, limbs=:limbs, bio=:bio WHERE id=:id");
       $cols=array(
         ':name'=>$name,
         ':email'=>$email,
@@ -244,7 +244,7 @@ else {
     try {
       $del=$db->prepare("DELETE FROM super WHERE per_id=?");
       $del->execute(array($id));
-      $stmt = $db->prepare("DELETE FROM application WHERE id=?");
+      $stmt = $db->prepare("DELETE FROM form WHERE id=?");
       $stmt -> execute(array($id));
     }
     catch(PDOException $e){
