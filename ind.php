@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   $errors['radio-2'] = !empty($_COOKIE['limb_error']);
   $errors['super'] = !empty($_COOKIE['super_error']);
   $errors['bio'] = !empty($_COOKIE['bio_error']);
-  $errors['checkbox'] = !empty($_COOKIE['check_error']);
+  $errors['check-1'] = !empty($_COOKIE['check_error']);
   if ($errors['name']) {
     setcookie('name_error', '', 100000);
     $messages[] = '<div class="error">Заполните имя или у него неверный формат (only English)</div>';
@@ -130,7 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   include('form.php');
 }
 else {
-  if(!empty($_POST['edit'])){
+  if(!empty($_POST['save'])){
     $id=$_POST['dd'];
     $name = $_POST['name'];
     $email = $_POST['email'];
