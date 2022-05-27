@@ -21,8 +21,8 @@ if (empty($_SERVER['PHP_AUTH_USER']) ||
     exit();
 }
 if(empty($_GET['edit_id'])){
- // header('Location: admin.php');
-  header('Location: ind.php?edit_id='.$id);
+ header('Location: admin.php');
+  //header('Location: ind.php?edit_id='.$id);
 }
 
 header('Content-Type: text/html; charset=UTF-8');
