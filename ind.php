@@ -1,7 +1,7 @@
 <?php
 $user = 'u47577';
 $pass = '9303559';
-$db = new PDO('mysql:host=localhost;dbname=u47577', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
+$db = new PDO('mysql:host=localhost;dbname=u41028', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
 $pass_hash=array();
 try{
   $get=$db->prepare("select pass from admin where user=?");
@@ -21,10 +21,8 @@ if (empty($_SERVER['PHP_AUTH_USER']) ||
     exit();
 }
 if(empty($_GET['edit_id'])){
- header('Location: admin.php');
-  //header('Location: ind.php?edit_id='.$id);
+  header('Location: admin.php');
 }
-
 header('Content-Type: text/html; charset=UTF-8');
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   $messages = array();
@@ -52,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   $errors['radio-2'] = !empty($_COOKIE['limb_error']);
   $errors['super'] = !empty($_COOKIE['super_error']);
   $errors['bio'] = !empty($_COOKIE['bio_error']);
-  $errors['check-1'] = !empty($_COOKIE['check_error']);
+  $errors['checkbox'] = !empty($_COOKIE['check_error']);
   if ($errors['name']) {
     setcookie('name_error', '', 100000);
     $messages[] = '<div class="error">Заполните имя или у него неверный формат (only English)</div>';
@@ -89,16 +87,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $error=TRUE;
   }
   $values = array();
-  $values['fly'] = 0;
-  $values['sleep'] = 0;
   $values['run'] = 0;
+  $values['sleep'] = 0;
+  $values['fly'] = 0;
   
   $user = 'u47577';
   $pass = '9303559';
   $db = new PDO('mysql:host=localhost;dbname=u47577', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
   try{
       $id=$_GET['edit_id'];
-      $get=$db->prepare("SELECT * FROM form WHERE id=?");
+      $get=$db->prepare("SELECT * FROM application WHERE id=?");
       $get->bindParam(1,$id);
       $get->execute();
       $inf=$get->fetchALL();
@@ -106,8 +104,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
       $values['email']=$inf[0]['email'];
       $values['year']=$inf[0]['year'];
       $values['radio-1']=$inf[0]['pol'];
-      $values['radio-2']=$inf[0]['limbs'];
-      $values['bio']=$inf[0]['bio'];
+      $values['radio-2']=$inf[0]['konech'];
+      $values['bio']=$inf[0]['biogr'];
     
       $get2=$db->prepare("SELECT name FROM super WHERE per_id=?");
       $get2->bindParam(1,$id);
@@ -117,11 +115,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         if($inf2[$i]['name']=='run'){
           $values['run']=1;
         }
-        if($inf2[$i]['name']=='fly'){
-          $values['fly']=1;
-        }
         if($inf2[$i]['name']=='sleep'){
           $values['sleep']=1;
+        }
+        if($inf2[$i]['name']=='fly'){
+          $values['fly']=1;
         }
       }
     }
@@ -132,10 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   include('form.php');
 }
 else {
-  if(!empty($_POST['save'])){
-	  
-	  
-	  
+  if(!empty($_POST['edit'])){
     $id=$_POST['dd'];
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -209,7 +204,7 @@ else {
     }
     
     $user = 'u47577';
-    $pass = '9303559 ';
+    $pass = '9303559';
     $db = new PDO('mysql:host=localhost;dbname=u47577', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
     if(!$errors){
       $upd=$db->prepare("UPDATE form SET name=:name, email=:email, year=:byear, pol=:pol, limbs=:limbs, bio=:bio WHERE id=:id");
