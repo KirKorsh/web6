@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   $db = new PDO('mysql:host=localhost;dbname=u47577', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
   try{
       $id=$_GET['edit_id'];
-      $get=$db->prepare("SELECT * FROM application WHERE id=?");
+      $get=$db->prepare("SELECT * FROM form WHERE id=?");
       $get->bindParam(1,$id);
       $get->execute();
       $inf=$get->fetchALL();
